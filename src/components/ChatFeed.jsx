@@ -1,4 +1,6 @@
 import MyMessage from './MyMessage';
+import MessageForm from './MessageForm';
+
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
 
@@ -50,6 +52,9 @@ const ChatFeed = (props) => {
       </div>
       {renderMessages()}
       <div style={{ height: '100px' }} />
+      <div className="message-form-container">
+        <MessageForm {...props} chatId={activeChat} />
+      </div>
     </div>
   );
 };
