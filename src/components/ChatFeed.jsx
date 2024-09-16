@@ -1,3 +1,4 @@
+import MyMessage from './MyMessage';
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
 
@@ -24,6 +25,11 @@ const ChatFeed = (props) => {
 
       return (
         <div key={`msg_${index}`} style={{ width: '100%' }}>
+           <div className="message-block">
+            {isMyMessage
+              ? <MyMessage message={message} />
+              : ''}
+          </div>
           <div className="read-receipts" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
             {renderReadReceipts(message, isMyMessage)}
           </div>
