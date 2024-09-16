@@ -1,4 +1,5 @@
 import MyMessage from './MyMessage';
+import TheirMessage from './TheirMessage';
 import MessageForm from './MessageForm';
 
 const ChatFeed = (props) => {
@@ -30,7 +31,7 @@ const ChatFeed = (props) => {
            <div className="message-block">
             {isMyMessage
               ? <MyMessage message={message} />
-              : ''}
+              : <TheirMessage message={message} lastMessage={messages[lastMessageKey]} />}
           </div>
           <div className="read-receipts" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
             {renderReadReceipts(message, isMyMessage)}
